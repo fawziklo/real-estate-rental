@@ -1,4 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//Containers
+.centred-flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.column-flex-direction {
+  display: flex;
+  flex-direction: column;
+}
+
+//Mobile first
+.adaptive-display-mobile-desktop {
+  @media screen and(max-width:768px) {
+    width: 85%
+  }
+
+  @media screen and(min-width:768px) {
+    width: 50%
+  }
+}
+
+//TEXT
+.text-align-center {
+  text-align: center;
+}
+
+
+// MARGIN
+.margin-top-16 {
+  margin-top: 16px !important;
+}
+
+.margin-bottom-16 {
+  margin-bottom: 16px !important;
+}
+
+.margin-bottom-24 {
+  margin-bottom: 24px !important;
+}
+
+//COLORS
+.pink-color {
+  color: #ff4081;
+}

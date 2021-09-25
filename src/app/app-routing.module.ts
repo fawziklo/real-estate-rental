@@ -9,9 +9,14 @@ const routes: Routes = [
       import('./screens/home/home.routing.module').then((m) => m.HomeRoutingModule),
   },
   {
+    path: 'authentication',
+    loadChildren: () =>
+      import('./screens/authentication/authentication.routing.module').then((m) => m.AutheticationRoutingModule),
+  },
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home'
+    redirectTo: 'authentication'
   }
 ];
 
