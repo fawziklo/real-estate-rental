@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticationComponent implements OnInit {
 
+  public isRegistred = false;
+
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+  }
+
+  public signUpLink(event: boolean) {
+    this.isRegistred = event;
+  }
+
+  public loginLink(event: boolean) {
+    this.isRegistred = event;
   }
 
 }

@@ -21,6 +21,11 @@ body {
   flex-direction: column;
 }
 
+.row-flex-direction {
+  display: flex;
+  flex-direction: row;
+}
+
 //Mobile first
 .adaptive-display-mobile-desktop {
   @media screen and(max-width:768px) {
@@ -54,4 +59,10 @@ body {
 //COLORS
 .pink-color {
   color: #ff4081;
+}
+
+
+//CURSOR
+.add-cursor {
+  cursor: pointer;
 }

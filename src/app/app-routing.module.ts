@@ -4,14 +4,19 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'authentication',
+    loadChildren: () =>
+      import('./screens/authentication/authentication.routing.module').then((m) => m.AutheticationRoutingModule),
+  },
+  {
     path: 'home',
     loadChildren: () =>
       import('./screens/home/home.routing.module').then((m) => m.HomeRoutingModule),
   },
   {
-    path: 'authentication',
+    path: 'client',
     loadChildren: () =>
-      import('./screens/authentication/authentication.routing.module').then((m) => m.AutheticationRoutingModule),
+      import('./screens/client-form/client-form.routing.module').then((m) => m.ClientFormRoutingModule),
   },
   {
     path: '',

@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button color="basic" style="margin-right: 10px;">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>Application Title</span>
+  <div *ngIf="true" style="margin-left: 25%;">
+    <button mat-button (click)="navigateToClientScreen()">Client Form</button>
+    <button mat-button routerLink="/page2">House Management</button>
+  </div>
+</mat-toolbar>

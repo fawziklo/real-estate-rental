@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="centred-flex-container">
+  <mat-card class="adaptive-display-mobile-desktop">
+    <mat-card-title class="text-centring">Sign Up Now </mat-card-title>
+    <mat-card-subtitle class="text-centring">Please fill the details to create an account</mat-card-subtitle>
+
+    <form class="" [formGroup]="clientForm">
+      <div class="adaptive-display-mobile-desktop row-flex-direction">
+        <mat-form-field appearance="outline">
+          <mat-label>Civility</mat-label>
+          <mat-select formControlName="civility" required>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+          <mat-error *ngIf="clientForm.controls.civility.invalid">{{"ok"}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Fullname</mat-label>
+          <input matInput formControlName="fullName" required>
+          <mat-error *ngIf="clientForm.controls.fullName.invalid">{{"ok"}}</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card>
+</div>

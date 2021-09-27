@@ -1,9 +1,9 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { HeaderModule } from './../../shared/header/header.module';
 import { HomeComponent } from "./home.component";
-import { HomeRoutingModule } from "./home.routing.module";
-import {MatIconModule} from "@angular/material/icon"
-import {MatToolbarModule} from "@angular/material/toolbar"
+
+
 
 
 
@@ -11,10 +11,9 @@ import {MatToolbarModule} from "@angular/material/toolbar"
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule,
-    MatIconModule,
-    MatToolbarModule
+    HeaderModule
   ],
   providers: [],
+  exports: [HomeComponent]
 })
 export class HomeModule { }
