@@ -1,2 +1,2 @@
-<app-login></app-login>
-<app-sign-up></app-sign-up>
+<app-login *ngIf="isRegistred" (loginLink)=loginLink($event)></app-login>
+<app-sign-up *ngIf="!isRegistred" (signUpLink)=signUpLink($event)></app-sign-up>

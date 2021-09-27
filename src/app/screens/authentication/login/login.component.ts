@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ILogin } from '../../../core/login';
+import { Router } from '@angular/router';
+import { ILogin } from '../../../core/models/login';
+import { AuthenticationService } from './../../../core/services/authentication.service';
+import { AuthSharedService } from './../auth-shared-service/auth.shared.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +12,20 @@ import { ILogin } from '../../../core/login';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
-  hide = true;
+  public loginForm: FormGroup;
+  public hide = true;
 
-  constructor(private fb: FormBuilder) { }
+  @Output() public loginLink = new EventEmitter<Boolean>();
 
-  ngOnInit(): void {
+
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthenticationService,
+    private authSharedService: AuthSharedService,
+    private router: Router
+  ) { }
+
+  public ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -22,28 +33,28 @@ export class LoginComponent implements OnInit {
 
   }
 
-  emailErrorMessage() {
-    if (this.loginForm.get('email').hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.loginForm.get('email').hasError('email') ? 'Not a valid email' : '';
+  public emailErrorMessage(): string {
+    return this.authSharedService.emailErrorMessage(this.loginForm)
   }
 
-  passWordErrorMessage() {
-    if (this.loginForm.get('password').hasError('required')) {
-      return 'You must enter a password';
-    }
+  public passWordErrorMessage(): string {
+    return this.authSharedService.passWordErrorMessage(this.loginForm)
+  }
 
-    return this.loginForm.get('password').hasError('password') ? 'Not a valid password' : '';
+  public loginLinkisPressed(){
+    this.loginLink.emit(false);
   }
 
   submitLoginForm() {
+    this.router.navigate(["/home"]);
+
     let loginData: ILogin = {
       email: this.loginForm.get('email').value,
       password: this.loginForm.get('password').value
     }
     console.log(loginData)
+
+    this.authService.sendUserLogin(loginData).subscribe();
   }
 
 }

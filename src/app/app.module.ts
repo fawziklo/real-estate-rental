@@ -1,3 +1,8 @@
+import { ClientFormModule } from './screens/client-form/client-form.module';
+import { HomeModule } from './screens/home/home.module';
+import { AuthenticationModule } from './screens/authentication/authentication.module';
+import { HomeComponent } from './screens/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
@@ -6,8 +11,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationModule } from './screens/authentication/authentication.module';
-import { HomeModule } from './screens/home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,12 +19,14 @@ import { HomeModule } from './screens/home/home.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HomeModule,
     AuthenticationModule,
-    ReactiveFormsModule,
+    ClientFormModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

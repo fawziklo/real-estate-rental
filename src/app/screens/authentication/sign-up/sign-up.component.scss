@@ -1,0 +1,13 @@
+@import 'src/styles.scss';
+
+.login-container {
+  @extend .centred-flex-container
+}
+
+.login-card-container {
+  @extend .adaptive-display-mobile-desktop
+}
+
+.text-centring {
+  @extend .text-align-center;
+}
